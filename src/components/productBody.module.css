@@ -1,0 +1,46 @@
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  background-color: #f6f6f6;
+  padding: 15px;
+  gap: 5px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.productContainer:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.productImgContainer {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  /* width: 100%; */
+}
+.productImgContainer > img {
+  height: 100%;
+  object-fit: fill;
+}
+.productDetailContainer {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.productControl {
+  display: flex;
+  gap: 5px;
+}
+.productControl > button {
+  padding: 5px;
+  border: none;
+  background-color: #ff9f00;
+  font-weight: 600;
+  color: #fff;
+}
+.productControl > :last-child {
+  background-color: #fb641b;
+}
