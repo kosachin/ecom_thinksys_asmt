@@ -13,5 +13,5 @@ export const Product = () => {
     setData(product);
     // console.log(product)
   }, []);
-  return data.length? <ProductBody product={data[0]} /> : <Error />;
+  return data.length ? <ProductBody product={data[0]} /> : <Error />;
 };
