@@ -1,0 +1,12 @@
+.cartContainer {
+  display: flex;
+  width: 800px;
+  align-items: center;
+}
+.cartImgContainer {
+  width: 150px;
+}
+.cartImgContainer img {
+  width: 100%;
+  object-fit: contain;
+}

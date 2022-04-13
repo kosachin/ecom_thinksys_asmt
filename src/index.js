@@ -17,7 +17,7 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="products" element={<Products />} />
-            <Route path="/products/:prodId" element={<Product />} />
+            {/* <Route path="/products/:prodId" element={<Product />} /> */}
             <Route path="cart" element={<Cart />} />
             <Route path="*" element={<Error />} />
           </Route>

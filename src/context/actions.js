@@ -5,6 +5,7 @@ import {
   ADD_TO_CART_ITEM_REQ,
   ADD_TO_CART_ITEM_SUCCESS,
   ADD_TO_CART_ITEM_FAILURE,
+  INC_CART_ITEM_QUANTITY,
 } from "./actionTypes";
 
 export const fetchAllDataRequest = () => ({
@@ -32,5 +33,10 @@ export const addToCartSuccess = (payload) => ({
 
 export const addToCartFailure = (payload) => ({
   type: ADD_TO_CART_ITEM_FAILURE,
+  payload,
+});
+
+export const incCartItemQuantity = (payload) => ({
+  type: INC_CART_ITEM_QUANTITY,
   payload,
 });

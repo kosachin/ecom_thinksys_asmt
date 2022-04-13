@@ -1,6 +1,7 @@
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { addToCartSuccess } from "../context/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { addToCartSuccess, incCartItemQuantity } from "../context/actions";
+import { store } from "../context/store";
 import classes from "./productBody.module.css";
 export const ProductBody = ({ product }) => {
   return (
@@ -10,27 +11,45 @@ export const ProductBody = ({ product }) => {
       </div>
       <div className={classes.productDetailContainer}>
         <h5 className={classes.productTitle}>{product.title}</h5>
-        <Button classes={classes} product={product} />
+        <div className={classes.productControl}>
+          <Button classes={classes} product={product} />
+        </div>
       </div>
     </div>
   );
 };
-const Button = ({ classes }, product) => {
+const Button = ({ classes, product }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const cartItems = useSelector((store) => store.cartItem);
   const handleAddToCart = (product) => {
-    dispatch(addToCartSuccess(product));
+    if (!cartItems.some((e) => e.id === product.id)) {
+      dispatch(addToCartSuccess(product));
+    } else {
+      dispatch(incCartItemQuantity(product.id));
+    }
+  };
+  const handleBuyNow = (product) => {
+    if (!cartItems.some((e) => e.id === product.id)) {
+      dispatch(addToCartSuccess(product));
+    }
+    navigate("/cart");
   };
   return (
-    <div className={classes.productControl}>
+    <>
       <button
         style={{ textDecoration: "none" }}
         onClick={() => handleAddToCart(product)}
       >
         add to cart
       </button>
-      <Link style={{ textDecoration: "none" }} to={`/products/${product.id}`}>
+      <button
+        style={{ textDecoration: "none" }}
+        to={`/cart`}
+        onClick={() => handleBuyNow(product)}
+      >
         buy now
-      </Link>
-    </div>
+      </button>
+    </>
   );
 };

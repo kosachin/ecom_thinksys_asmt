@@ -5,6 +5,7 @@ import {
   ADD_TO_CART_ITEM_REQ,
   ADD_TO_CART_ITEM_SUCCESS,
   ADD_TO_CART_ITEM_FAILURE,
+  INC_CART_ITEM_QUANTITY,
 } from "./actionTypes";
 
 const init = {
@@ -29,11 +30,19 @@ const reducer = (store = init, { type, payload }) => {
       return {
         ...store,
         loading: false,
-        cartItem: [...store.cartItem, payload],
+        cartItem: [...store.cartItem, { ...payload, quantity: 1 }],
       };
     case ADD_TO_CART_ITEM_FAILURE:
       return { ...store, loading: false, error: payload.message };
-      break;
+    case INC_CART_ITEM_QUANTITY:
+      store.cartItem.forEach((e) => {
+        if (e.id === payload) {
+          e.quantity += 1;
+        }
+      });
+      return {
+        ...store,
+      };
     default:
       return { ...store };
   }
