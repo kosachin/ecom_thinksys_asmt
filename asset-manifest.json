@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ecom_thinksys_asmt/static/css/main.1c1c11f0.css",
+    "main.js": "/ecom_thinksys_asmt/static/js/main.5cc6b4de.js",
+    "static/js/787.34115356.chunk.js": "/ecom_thinksys_asmt/static/js/787.34115356.chunk.js",
+    "index.html": "/ecom_thinksys_asmt/index.html",
+    "main.1c1c11f0.css.map": "/ecom_thinksys_asmt/static/css/main.1c1c11f0.css.map",
+    "main.5cc6b4de.js.map": "/ecom_thinksys_asmt/static/js/main.5cc6b4de.js.map",
+    "787.34115356.chunk.js.map": "/ecom_thinksys_asmt/static/js/787.34115356.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1c1c11f0.css",
+    "static/js/main.5cc6b4de.js"
+  ]
+}
